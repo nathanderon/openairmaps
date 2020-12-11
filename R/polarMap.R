@@ -63,7 +63,7 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
   if (type == "default") vars <- c("wd", x, pollutant, latitude, longitude)
 
   # check and select variables
-  data <- openair:::checkPrep(data, vars, type = type)
+  data <- openair:::checkPrep(data, vars, type = type, remove.calm = F)
 
   # cut data
   data <- openair::cutData(data, type)
