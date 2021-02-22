@@ -132,7 +132,7 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
     addMarkers(data = plot_data,
                plot_data[[longitude]], plot_data[[latitude]],
                icon = leafIcons, label = plot_data[[type]], 
-               labelOptions = labelOptions(noHide = labels, opacity = 0.75, offset = c(120, 0), direction = "left"))
+               labelOptions = labelOptions(noHide = labels, opacity = 0.75, offset = c(-120, 0), direction = "left"))
 
   # return
   m
