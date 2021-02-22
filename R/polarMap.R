@@ -54,7 +54,7 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
                      key = FALSE,
                      iconWidth = 200, iconHeight = 200,
                      fig.width = 4, fig.height = 4,
-                     labels = F`, ...) {
+                     labels = F, ...) {
 
   . <- NULL
 
