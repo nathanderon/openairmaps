@@ -53,7 +53,8 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
                      alpha = 1,
                      key = FALSE,
                      iconWidth = 200, iconHeight = 200,
-                     fig.width = 4, fig.height = 4, ...) {
+                     fig.width = 4, fig.height = 4,
+                     labels = F`, ...) {
 
   . <- NULL
 
@@ -127,10 +128,11 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
   # plot leaflet
   m <- leaflet(data = plot_data) %>%
     addTiles() %>%
-    addProviderTiles(provider = provider) %>%
+    addProviderTiles(provider = provider) %>% 
     addMarkers(data = plot_data,
                plot_data[[longitude]], plot_data[[latitude]],
-               icon = leafIcons, popup = plot_data[[type]])
+               icon = leafIcons, label = plot_data[[type]], 
+               labelOptions = labelOptions(noHide = labels))
 
   # return
   m
