@@ -92,7 +92,7 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
   }
 
   # function to produce a polar plot, with transparent background
-  plot_polar <- function(data, pollutant, type, x, alpha, key, freq, ...) {
+  plot_polar <- function(data, pollutant, type, x, alpha, key, ...) {
 
     png(filename = paste0(dir_polar, "/", data[[type]][1], ".png"),
         width = fig.width * 300,
@@ -106,7 +106,7 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
                        ...)
       }
     if(freq){
-      plt <- polarFreq(data, pollutant = pollutant, x = x,
+      plt <- polarFreq(data, pollutant = pollutant,
                        statistic = "weighted.mean", 
                        key = key, 
                        par.settings = list(axis.line = list(col = "transparent")),
