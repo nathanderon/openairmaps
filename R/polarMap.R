@@ -54,6 +54,7 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
                      key = FALSE,
                      iconWidth = 200, iconHeight = 200,
                      fig.width = 4, fig.height = 4,
+                     freq = F,
                      labels = F,
                      label.offset = -120, ...) {
 
@@ -97,12 +98,20 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
         width = fig.width * 300,
         height = fig.height * 300, res = 300, bg = "transparent")
 
-    plt <- polarPlot(data, pollutant = pollutant, x = x,
-                     key = key,
-                     par.settings = list(axis.line = list(col = "transparent")),
-                     alpha = alpha,
-                     ...)
-
+    if(!freq){
+      plt <- polarPlot(data, pollutant = pollutant, x = x,
+                       key = key,
+                       par.settings = list(axis.line = list(col = "transparent")),
+                       alpha = alpha,
+                       ...)
+      }
+    if(freq){
+      plt <- polarFreq(data, pollutant = pollutant, 
+                       statistic = "weighted.mean", 
+                       key = key, 
+                       par.settings = list(axis.line = list(col = "transparent")),
+                       ...)
+      }
     dev.off()
 
     return(plt$data)
