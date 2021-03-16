@@ -107,7 +107,6 @@ polarMap <- function(data, pollutant = "nox", x = "ws",
       }
     if(freq){
       plt <- polarFreq(data, pollutant = pollutant,
-                       statistic = "weighted.mean", 
                        key = key, 
                        par.settings = list(axis.line = list(col = "transparent")),
                        ...)
